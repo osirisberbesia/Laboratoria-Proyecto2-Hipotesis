@@ -1,0 +1,1 @@
+SELECT CORR(cast(streams as int64), participacion_total) as correlacion FROM `laboratoria2.datos_hipotesis.participacion_playlists` 

@@ -1,55 +1,63 @@
 # Proyecto 2 de Análisis de Datos
 ## Hipotesis
 
-Objetivos:
-Preparar la información de la base de datos y aplicar la segmentación de clientes a través de RFM, entender el resultado de la segmentación y sacar conclusiones que posibiliten a la empresa a tomar decisiones, las cuales son requeridas por parte de la empresa para mantener y aumentar sus ingresos, además buscar información importante que se encuentra oculta en los datos.
+### Objetivos
 
-Se pretende responder las preguntas relacionadas a quienes son nuestros clientes, y como se comportan los mismos con la empresa. Se pretende responder:
+Preparar la información de la base de datos que corresponde a los datos de las reproducciones de canciones más escuchadas en el año 2023 en la plataforma Spotify, Deezer y Apple, para comprender, respaldar y conocer el comportamiento que hace que una canción sea mayor o menormente escuchada en una plataforma. 
+Analizar los datos, para convertirlos en información respaldada por cálculos estadísticos.
 
-Cuál es el grado academico de los clientes?
-Cual es la edad de estos?
-Cuántos tienen hijos?
-Cual es la tendencia de compra del cliente?
-Quienes son los clientes que generan el 80% de los ingresos de la empresa?
-otras preguntas relacionadas...
-Equipo:
-Osiris Berbesia - Individual
+Se pretende obtener las respuestas para validar o refutar las siguientes hipótesis:
 
-Herramientas y Tecnologías:
-Hojas de cálculo Excel
-Documentación de Google Sheets
+* Las canciones con un mayor BPM (Beats Por Minuto) tienen más éxito en términos de cantidad de streams en Spotify.
+* Las canciones más populares en el ranking de Spotify también tienen un comportamiento similar en otras plataformas como Deezer.
+* La presencia de una canción en un mayor número de playlists se relaciona con un mayor número de streams.
+* Los artistas con un mayor número de canciones en Spotify tienen más streams.
+* Las características de la música influyen en el éxito en términos de cantidad de streams en Spotify.
+* Las el modo de la canción "Minor" o "Major" influye en la cantidad de reproducciones de la misma.
+
+### Equipo
+
+Osiris Berbesia - Julieta Salto
+
+### Herramientas y Tecnologías
+
+SQL
+BigQuery
+Documentación de Google Console
+Documentación Python
 OpenAI - ChatGPT
-Looker Studio
 Google Slides
 YouTube
-Procesamiento y análisis:
-Procesamiento
-Antes de la exploración de datos, se importan los datos de los tres data_sets recibidos en un solo documento con la formula IMPORTRANGE.
 
-Una vez realizada la importación de datos, se procede a la busqueda de nulos para tomar decisiones acerca de que hacer con estos.
+### Procesamiento y análisis
 
-Para los data_set clientes, transacciones, y resumen se agregará una columna adicional para la formula "countblank" y así poder determinar con mejor exactitud cuales acciones tomar
+#### Procesamiento
+Antes de la exploración de datos, se importan los documentos contenedores de la información dentro de un proyecto en BigQuery.
 
-Para el data_set clientes, la categoria ingreso_anual_dolar tiene un total de 24 clientes con esta información en nulo, en este data_set, para no eliminar a los clientes, se establecerá un valor de -1 de forma que:
-Todos los clientes que tengan valor -1 en su ingreso_anual_dolar, serán excluidos de la promediación del ingreso anual, ya que, pueden existir usuarios que al registrarse, indiquen que su ingreso anual es 0, por lo que si se le pone 0 a estos nulos, luego se confundiría la información entre los que dejaron vacio y los que llenaron nulos.
-Para el data_set transacciones, existen los siguientes nulos: alt text Los cuales, al no tener el ID del cliente ni otra fuente de datos para recuperar la información faltante, se decide omitir estos.
-Para el data_set resumen_compras, no existe ninguna categoria con nulos. Por lo cual se trabajará con la información de todo el data set según aplique.
-Para los data_sets que tienen nulos y se deben modificar a -1 y 0 según lo explicado anteriormente, al ser data_sets importados, no se puede modificar la información dentro de ellos, por lo cual se hará una columna adicional, donde se recorra cada categoria donde están los nulos y modifique los datos a -1 o 0 según corresponda la ubicación del nulo, y se trabajará con esta columna auxiliar.
-En cuanto a los valores duplicados, se examinan los 3 data_sets, y en las categorias donde no pueden (no deberían) haber duplicados, son:
+Luego se procede a la limpieza de datos, la cual incluye:
 
-En el data_set clientes, el valor que debería ser siempre único, es id_cliente, para este data_set, no hay valores duplicados.
-En el data_set transacciones, el único valor que no debería estar duplicado sería, id_transacción, el cual no está duplicado.
-id_cliente si se repite, sin embargo, es totalmente válido en este escenario.
-En resumen_compras, el valor id_cliente, está duplicado, y para este escenario, el valor no debería de estarlo. Se podría evaluar hacer la suma de los montos, si estos fueran diferentes, pero en este caso, desde ID hasta el último dato, todo esta duplicado, por lo cual en este caso los valores duplicados si deben eliminarse, sin embargo, al tratarse de información extraida con IMPORTRANGE no se puede eliminar esto, sin embargo se decide no tomarlos en cuenta.
-Valores fuera del alcance del análisis, para el data set transacciones, las transacciones que no tengan id_cliente, son valores fuera del alcance del análisis.
+* Eliminación de duplicados. (Validación que incluye que la combinación de un artista+canción esté repetida)
+* Valores Nulos, permanecen en el sistema. (No afectan nuestros datos)
+* Eliminación  de caracteres especiales como: �����
+* Eliminación de datos donde no corresponden, ejm, caracteres de letras en variables numéricas.
 
-Para cambiar los valores a -1 en el data set donde corresponde la sustitución de la información por lo valores nulos, se utiliza una función que recorra y corrobore donde hay nulos para sustituirlos por los valores comentados. Para el data set tranasacciones, se realiza una query que traiga los datos del origen sin los nulos. =QUERY(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1dD2UF-XPWjPu7pkApGCQ1uIIVA0gAcZ-Qk4LPmxX10A/edit","transacciones!A:D"), "SELECT * WHERE Col1 IS NOT NULL AND Col2 IS NOT NULL AND Col3 IS NOT NULL AND Col4 IS NOT NULL", 1)
+Consultas utilizadas para la limpieza de datos.
 
-Para el data set resumen compras, se utiliza la función UNIQUE para eliminar los valores duplicados a nivel vista, ya que no estaremos trabajando con ellos, y son iguales de principio a fin.
+Validación de duplicados que tenían artist(s)+nombre de canción repetido:
 
-=UNIQUE(IMPORTRANGE("https://docs.google.com/spreadsheets/d/1Tkg0lYsAiwu6CB6slktwUMdayWTvBq80SyX16r-xEVA/edit","resumen_compras!A:G"))
+<pre>
+    <code>
 
-Otro valor fuera del alcance del análisis sería el id_transaccion, ya que es un dato no requerido para el análisis.
+  SELECT track_name, artist_s_name
+  FROM `laboratoria2.datos_hipotesis.track_in_spotify`
+  GROUP BY track_name, artist_s_name
+  HAVING COUNT(*) > 1
+  order by track_name
+
+  </pre>
+    </code>
+
+
 
 Nuevas variables:
 Variables en hoja unificado:

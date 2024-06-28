@@ -1,0 +1,14 @@
+{
+    "sqltools.useNodeRuntime": true,
+    "sqltools.connections": [
+        {
+            "name": "Laboratoria2",
+            "authenticator": "SERVICE_ACCOUNT",
+            "location": "US",
+            "previewLimit": 50,
+            "driver": "BigQuery",
+            "projectId": "laboratoria2",
+            "keyfile": "C:\\Users\\Oberb\\Downloads\\laboratoria2-c62c9b3fff4c.json"
+        }
+    ]
+}
