@@ -51,6 +51,83 @@ Validación de duplicados que tenían artist(s)+nombre de canción repetido:
   HAVING COUNT(*) > 1
   order by track_name
 ```
+Luego se traen todos los datos, para validar si los duplicados deben ser eliminados o realmente tomados en cuenta.
+```
+SELECT 
+  t.track_id,
+  t.track_name,
+  t.artist_s_name,
+  CAST(CONCAT(t.released_year, '-', t.released_month, '-', t.released_day) AS DATE) AS Fecha_Released,
+  t.streams,
+  t.in_spotify_playlists,
+  tt.in_apple_playlists,
+  tt.in_deezer_playlists,
+  ti.bpm,
+  ti.key,
+  ti.mode,
+  ti.`danceability_%`,
+  ti.`valence_%`,
+  ti.`energy_%`,
+  ti.`acousticness_%`,
+  ti.`instrumentalness_%`,
+  ti.`liveness_%`,
+  ti.`speechiness_%`
+FROM 
+  `laboratoria2.datos_hipotesis.track_in_spotify` t
+JOIN 
+  duplicates d
+ON 
+  t.track_name = d.track_name AND t.artist_s_name = d.artist_s_name
+JOIN 
+  `laboratoria2.datos_hipotesis.track_technical_info` ti
+ON 
+  t.track_id = ti.track_id
+JOIN 
+`laboratoria2.datos_hipotesis.track_in_competition` tt
+ON
+tt.track_id = t.track_id;
+```
+<pre class="language-sql">
+    <code class="language-sql">
+        SELECT * 
+        FROM employees 
+        WHERE department = 'Sales';
+    </code>
+</pre>
+
+Con lo anterior, se determina que:
+* Los dos Track id que no se tomarán en cuenta son:
+    * "5080031" 
+    * "7173596"
+
+Para la validación y limpieza de carácteres de datos, junto a la omisión de los track_id que no serán utilizados, además de ser la consulta para crear el view con el que se iba a trabajar, se usó la siguiente consulta:
+
+```
+SELECT 
+  s.track_id, 
+  
+
+  REGEXP_REPLACE(s.track_name, r'[^a-zA-Z0-9\s\-:,?\'()&]', '') as track_name,
+
+  REGEXP_REPLACE(s.artist_s_name, r'[^a-zA-Z0-9\s\-:,?\'()&]', '') as artist_s_name,
+  
+  s.artist_count, 
+ CAST(CONCAT(s.released_year, '-', s.released_month, '-', s.released_day) AS DATE) AS released_date,
+   s.in_spotify_playlists, s.in_spotify_charts,
+  c.in_apple_playlists, 
+  c.in_apple_charts,
+  c.in_deezer_playlists,
+   c.in_deezer_charts, 
+   c.in_shazam_charts,
+  (s.in_spotify_playlists+c.in_apple_playlists+c.in_deezer_playlists) as participacion_total, s.streams
+
+FROM `laboratoria2.datos_hipotesis.track_in_spotify` AS s
+INNER JOIN
+(SELECT track_id, in_apple_playlists,in_apple_charts, in_deezer_playlists,in_deezer_charts, in_shazam_charts FROM `laboratoria2.datos_hipotesis.track_in_competition`) AS c
+ON s.track_id = c.track_id
+where
+s.track_id != "5080031" and s.streams NOT LIKE "%B%" and s.track_id !="7173596";
+```
 
 
 
