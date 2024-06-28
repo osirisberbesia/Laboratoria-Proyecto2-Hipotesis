@@ -46,7 +46,7 @@ Consultas utilizadas para la limpieza de datos.
 Validación de duplicados que tenían artist(s)+nombre de canción repetido:
 
 <pre>
-    <code>
+
 
   SELECT track_name, artist_s_name
   FROM `laboratoria2.datos_hipotesis.track_in_spotify`
@@ -55,7 +55,7 @@ Validación de duplicados que tenían artist(s)+nombre de canción repetido:
   order by track_name
 
   </pre>
-    </code>
+
 
 
 
