@@ -22,5 +22,5 @@ def generate_index(file_path):
         file.writelines(lines)
 
 # Ruta al archivo Markdown
-file_path = r'C:\Users\Oberb\OneDrive\Documentos\README.md'
+file_path = r'C:\Users\Oberb\OneDrive\Documentos\Laboratoria\Laboratoria-Proyecto2-Hipotesis-main\Laboratoria-Proyecto2-Hipotesis-main\Laboratoria-Proyecto2-Hipotesis\README.md'
 generate_index(file_path)
