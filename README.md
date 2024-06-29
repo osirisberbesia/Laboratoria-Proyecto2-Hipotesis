@@ -31,7 +31,6 @@ YouTube
 
 ### Procesamiento y análisis
 
-#### Procesamiento
 Antes de la exploración de datos, se importan los documentos contenedores de la información dentro de un proyecto en BigQuery.
 
 Luego se procede a la limpieza de datos, la cual incluye:
@@ -44,7 +43,7 @@ Luego se procede a la limpieza de datos, la cual incluye:
 Consultas utilizadas para la limpieza de datos.
 
 Validación de duplicados que tenían artist(s)+nombre de canción repetido:
-```
+```sql
   SELECT track_name, artist_s_name
   FROM `laboratoria2.datos_hipotesis.track_in_spotify`
   GROUP BY track_name, artist_s_name
@@ -52,7 +51,8 @@ Validación de duplicados que tenían artist(s)+nombre de canción repetido:
   order by track_name
 ```
 Luego se traen todos los datos, para validar si los duplicados deben ser eliminados o realmente tomados en cuenta.
-```
+
+```sql
 SELECT 
   t.track_id,
   t.track_name,
@@ -87,29 +87,23 @@ JOIN
 ON
 tt.track_id = t.track_id;
 ```
-<pre class="language-sql">
-    <code class="language-sql">
-        SELECT * 
-        FROM employees 
-        WHERE department = 'Sales';
-    </code>
-</pre>
 
 Con lo anterior, se determina que:
+
 * Los dos Track id que no se tomarán en cuenta son:
     * "5080031" 
     * "7173596"
 
 Para la validación y limpieza de carácteres de datos, junto a la omisión de los track_id que no serán utilizados, además de ser la consulta para crear el view con el que se iba a trabajar, se usó la siguiente consulta:
 
-```
+```sql
 SELECT 
   s.track_id, 
   
 
-  REGEXP_REPLACE(s.track_name, r'[^a-zA-Z0-9\s\-:,?\'()&]', '') as track_name,
+  REGEXP_REPLACE(s.track_name, r"[^a-zA-Z0-9\s\-:,?\'()&]", '') as track_name,
 
-  REGEXP_REPLACE(s.artist_s_name, r'[^a-zA-Z0-9\s\-:,?\'()&]', '') as artist_s_name,
+  REGEXP_REPLACE(s.artist_s_name, r"[^a-zA-Z0-9\s\-:,?\'()&]", '') as artist_s_name,
   
   s.artist_count, 
  CAST(CONCAT(s.released_year, '-', s.released_month, '-', s.released_day) AS DATE) AS released_date,
@@ -128,6 +122,60 @@ ON s.track_id = c.track_id
 where
 s.track_id != "5080031" and s.streams NOT LIKE "%B%" and s.track_id !="7173596";
 ```
+
+#### Creación de nuevas variables
+
+ * categoria_artista: separa a las superestrellas, estrellas y artistas de nicho, basandose en el recorrido artístico de cada artista.
+
+
+ * genero_artista: asigna a aproximadamente las 100 canciones con más éxito el genero a la que corresponde el artista, dentro de las cuales están:
+  * Rock
+  * Pop
+  * Otros
+  * Hip-Hop/Rap
+  * R&B
+  * Electrónica
+  * Reggaeton
+  * Regional Mexicano
+
+
+ * modo_cancion: tomando en cuenta la variable existente artist_count (cantidad de artistas que participan en la canción) se categoriza la canción según su participación, como:
+  * Feat (participa más de un artista)
+  * Solo (Participa solo un artista)
+
+ * released_date: es el resultado del concatenado de la fecha separada por día, mes y año de la tabla original en formato DATE.
+
+
+ * participacion_total: es la sumatoria de las playlist en la que aparece una canción en las tres plataformas
+
+* cuartiles:
+
+
+ * cuartiles_dance:
+
+
+ * cuartiles_valence:
+
+
+ * cuartiles_energy:
+
+
+ * cuartiles_acousticness:
+
+
+ * cuartiles_intrumental:
+
+
+ * cuartiles_live:
+
+
+ * cuartiles_speech:
+
+
+ * cuartiles_streams:
+
+
+ * cuartiles_categoria:
 
 
 

@@ -1,0 +1,1 @@
+  select distinct(genero_artista) from `laboratoria2.datos_hipotesis.views_technical` 
