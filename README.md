@@ -36,13 +36,13 @@ Osiris Berbesia - Julieta Salto
 
 ## Herramientas y Tecnologías
 
-SQL
-BigQuery
-Documentación de Google Console
-Documentación Python
-OpenAI - ChatGPT
-Google Slides
-YouTube
+* SQL
+* BigQuery
+* Documentación de Google Console
+* Documentación Python
+* OpenAI - ChatGPT
+* Google Slides
+* YouTube
 
 ## Procesamiento y análisis
 
@@ -202,7 +202,16 @@ La tabla unificada queda así:
 ### Resultados
 
 Después de la limpieza de los datos, de 953 tracks, quedaron 948 tracks.
-La empresa está 
+Con los cuales se puede concluir lo siguiente para cada hipótesis:
+
+* Las canciones con un mayor BPM (Beats Por Minuto) tienen más éxito en términos de cantidad de streams en Spotify.
+El resultado de la formula que nos 
+* Las canciones más populares en el ranking de Spotify también tienen un comportamiento similar en otras plataformas como Deezer.
+* La presencia de una canción en un mayor número de playlists se relaciona con un mayor número de streams.
+* Los artistas con un mayor número de canciones en Spotify tienen más streams.
+* Las características de la música influyen en el éxito en términos de cantidad de streams en Spotify.
+* Las el modo de la canción "Minor" o "Major" influye en la cantidad de reproducciones de la misma.
+
 
 
 ## Conclusiones
@@ -215,4 +224,10 @@ La empresa está
 ### Próximos pasos
 
 ## Enlaces de interés:
+
+[Google Colab Notebook](https://colab.research.google.com/drive/1WFhzvPDD8SYc2n5df5IysLFr5h8cMPmx?usp=sharing)
+[Presentación - Google Slides](https://docs.google.com/presentation/d/1X3Xdv1IGNor8D9KBSDh25LyeDOJMR0BY027JqDykrEs/edit?usp=sharing)
+[Video Loom]
+[Repertorio GitHub]
+
 
