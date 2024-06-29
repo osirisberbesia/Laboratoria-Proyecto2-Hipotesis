@@ -202,10 +202,21 @@ La tabla unificada queda así:
 ### Resultados
 
 Después de la limpieza de los datos, de 953 tracks, quedaron 948 tracks.
+
 Con los cuales se puede concluir lo siguiente para cada hipótesis:
 
 * Las canciones con un mayor BPM (Beats Por Minuto) tienen más éxito en términos de cantidad de streams en Spotify.
-El resultado de la formula que nos 
+Se exploró la relación entre una variable y otra a través de la correlación de Pearson, la cual dió el siguiente resultado:
+-0.0007 Lo cual, al ser un resultado más cercano a 0 que a 1 o -1, indica que no hay ninguna correlación entre estas variables.
+
+Observando gráficamente, a través de un scatter plot:
+
+![alt text](image-4.png)
+
+Se observa igualmente que los datos están demasiado dispersos como para poder estar relacionados entre si.
+
+
+
 * Las canciones más populares en el ranking de Spotify también tienen un comportamiento similar en otras plataformas como Deezer.
 * La presencia de una canción en un mayor número de playlists se relaciona con un mayor número de streams.
 * Los artistas con un mayor número de canciones en Spotify tienen más streams.
