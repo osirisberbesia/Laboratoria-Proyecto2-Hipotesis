@@ -1,26 +1,20 @@
+# Proyecto 2 de Análisis de Datos (Hipótesis)
+## Índice
 
+- [Objetivos](#objetivos)
+- [Equipo](#equipo)
+- [Herramientas y Tecnologías](#herramientas-y-tecnologas)
+- [Procesamiento y análisis](#procesamiento-y-anlisis)
+  - [Creación de nuevas variables](#creacin-de-nuevas-variables)
+  - [Unificación de tablas](#unificacin-de-tablas)
+- [Resultados y Conclusiones](#resultados-y-conclusiones)
+  - [Resultados](#resultados)
+- [Conclusiones](#conclusiones)
+- [Limitaciones/Próximos Pasos:](#limitacionesprximos-pasos)
+  - [Limitaciones](#limitaciones)
+  - [Próximos pasos](#prximos-pasos)
+- [Enlaces de interés:](#enlaces-de-inters)
 
-# Índice
-
-# Proyecto 2 de Análisis de Datos
-
-- [Hipotesis](#hipotesis)
-  - [Objetivos](#objetivos)
-  - [Equipo](#equipo)
-  - [Herramientas y Tecnologías](#herramientas-y-tecnologas)
-  - [Procesamiento y análisis](#procesamiento-y-anlisis)
-    - [Creación de nuevas variables](#creacin-de-nuevas-variables)
-    - [Unificación de tablas](#unificacin-de-tablas)
-  - [Resultados y Conclusiones](#resultados-y-conclusiones)
-    - [Resultados](#resultados)
-  - [Conclusiones](#conclusiones)
-  - [Limitaciones/Próximos Pasos:](#limitacionesprximos-pasos)
-    - [Limitaciones](#limitaciones)
-    - [Próximos pasos](#prximos-pasos)
-  - [Enlaces de interés:](#enlaces-de-inters)
-
-# Proyecto 2 de Análisis de Datos
-# Hipotesis
 
 ## Objetivos
 
