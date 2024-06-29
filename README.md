@@ -129,19 +129,19 @@ s.track_id != "5080031" and s.streams NOT LIKE "%B%" and s.track_id !="7173596";
 
 
  * genero_artista: asigna a aproximadamente las 100 canciones con más éxito el genero a la que corresponde el artista, dentro de las cuales están:
-  * Rock
-  * Pop
-  * Otros
-  * Hip-Hop/Rap
-  * R&B
-  * Electrónica
-  * Reggaeton
-  * Regional Mexicano
+    * Rock
+    * Pop
+    * Otros
+    * Hip-Hop/Rap
+    * R&B
+    * Electrónica
+    * Reggaeton
+    * Regional Mexicano
 
 
  * modo_cancion: tomando en cuenta la variable existente artist_count (cantidad de artistas que participan en la canción) se categoriza la canción según su participación, como:
-  * Feat (participa más de un artista)
-  * Solo (Participa solo un artista)
+    * Feat (participa más de un artista)
+    * Solo (Participa solo un artista)
 
  * released_date: es el resultado del concatenado de la fecha separada por día, mes y año de la tabla original en formato DATE.
 
@@ -151,31 +151,31 @@ s.track_id != "5080031" and s.streams NOT LIKE "%B%" and s.track_id !="7173596";
 * cuartiles:
 
 
- * cuartiles_dance:
+  * cuartiles_dance:
 
 
- * cuartiles_valence:
+  * cuartiles_valence:
 
 
- * cuartiles_energy:
+  * cuartiles_energy:
 
 
- * cuartiles_acousticness:
+  * cuartiles_acousticness:
 
 
- * cuartiles_intrumental:
+  * cuartiles_intrumental:
 
 
- * cuartiles_live:
+  * cuartiles_live:
 
 
- * cuartiles_speech:
+  * cuartiles_speech:
 
 
- * cuartiles_streams:
+  * cuartiles_streams:
 
 
- * cuartiles_categoria:
+  * cuartiles_categoria:
 
 
 
