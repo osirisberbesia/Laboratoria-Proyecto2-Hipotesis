@@ -1,25 +1,25 @@
 # Índice
 
 - [Proyecto 2 de Análisis de Datos](#proyecto-2-de-anlisis-de-datos)
-  - [Hipotesis](#hipotesis)
-    - [Objetivos](#objetivos)
-    - [Equipo](#equipo)
-    - [Herramientas y Tecnologías](#herramientas-y-tecnologas)
-    - [Procesamiento y análisis](#procesamiento-y-anlisis)
-      - [Creación de nuevas variables](#creacin-de-nuevas-variables)
-      - [Unificación de tablas](#unificacin-de-tablas)
-    - [Resultados y Conclusiones](#resultados-y-conclusiones)
-      - [Resultados](#resultados)
-    - [Conclusiones](#conclusiones)
-      - [Limitaciones/Próximos Pasos:](#limitacionesprximos-pasos)
-        - [Limitaciones](#limitaciones)
-        - [Próximos pasos](#prximos-pasos)
-    - [Enlaces de interés:](#enlaces-de-inters)
+- [Hipotesis](#hipotesis)
+  - [Objetivos](#objetivos)
+  - [Equipo](#equipo)
+  - [Herramientas y Tecnologías](#herramientas-y-tecnologas)
+  - [Procesamiento y análisis](#procesamiento-y-anlisis)
+    - [Creación de nuevas variables](#creacin-de-nuevas-variables)
+    - [Unificación de tablas](#unificacin-de-tablas)
+  - [Resultados y Conclusiones](#resultados-y-conclusiones)
+    - [Resultados](#resultados)
+  - [Conclusiones](#conclusiones)
+  - [Limitaciones/Próximos Pasos:](#limitacionesprximos-pasos)
+    - [Limitaciones](#limitaciones)
+    - [Próximos pasos](#prximos-pasos)
+  - [Enlaces de interés:](#enlaces-de-inters)
 
 # Proyecto 2 de Análisis de Datos
-## Hipotesis
+# Hipotesis
 
-### Objetivos
+## Objetivos
 
 Preparar la información de la base de datos que corresponde a los datos de las reproducciones de canciones más escuchadas en el año 2023 en la plataforma Spotify, Deezer y Apple, para comprender, respaldar y conocer el comportamiento que hace que una canción sea mayor o menormente escuchada en una plataforma. 
 Analizar los datos, para convertirlos en información respaldada por cálculos estadísticos.
@@ -33,11 +33,11 @@ Se pretende obtener las respuestas para validar o refutar las siguientes hipóte
 * Las características de la música influyen en el éxito en términos de cantidad de streams en Spotify.
 * Las el modo de la canción "Minor" o "Major" influye en la cantidad de reproducciones de la misma.
 
-### Equipo
+## Equipo
 
 Osiris Berbesia - Julieta Salto
 
-### Herramientas y Tecnologías
+## Herramientas y Tecnologías
 
 SQL
 BigQuery
@@ -47,7 +47,7 @@ OpenAI - ChatGPT
 Google Slides
 YouTube
 
-### Procesamiento y análisis
+## Procesamiento y análisis
 
 Antes de la exploración de datos, se importan los documentos contenedores de la información dentro de un proyecto en BigQuery.
 
@@ -141,7 +141,7 @@ where
 s.track_id != "5080031" and s.streams NOT LIKE "%B%" and s.track_id !="7173596";
 ```
 
-#### Creación de nuevas variables
+### Creación de nuevas variables
 
  * categoria_artista: separa a las superestrellas, estrellas y artistas de nicho, basandose en el recorrido artístico de cada artista.
 
@@ -190,7 +190,7 @@ Los siguientes dividen en 4 variables a los cuartiles según el valor de la cant
     * 1 - Bajo
 
 
-#### Unificación de tablas
+### Unificación de tablas
 Se genera un view, donde está el unificado de nuestras primeras 3 tablas proporcionadas, más las nuevas variables. 
 
 La tabla unificada queda así:
@@ -201,21 +201,21 @@ La tabla unificada queda así:
 ![alt text](image-3.png)
 
 
-### Resultados y Conclusiones
-#### Resultados
+## Resultados y Conclusiones
+### Resultados
 
 Después de la limpieza de los datos, de 953 tracks, quedaron 948 tracks.
 La empresa está 
 
 
-### Conclusiones
+## Conclusiones
 
 
-#### Limitaciones/Próximos Pasos:
-##### Limitaciones
+## Limitaciones/Próximos Pasos:
+### Limitaciones
 
 
-##### Próximos pasos
+### Próximos pasos
 
-### Enlaces de interés:
+## Enlaces de interés:
 
