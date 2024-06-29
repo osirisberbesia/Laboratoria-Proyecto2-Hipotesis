@@ -205,7 +205,8 @@ Después de la limpieza de los datos, de 953 tracks, quedaron 948 tracks.
 
 Con los cuales se puede concluir lo siguiente para cada hipótesis:
 
-* Las canciones con un mayor BPM (Beats Por Minuto) tienen más éxito en términos de cantidad de streams en Spotify.
+1. Las canciones con un mayor BPM (Beats Por Minuto) tienen más éxito en términos de cantidad de streams en Spotify.
+
 Se exploró la relación entre una variable y otra a través de la correlación de Pearson, la cual dió el siguiente resultado:
 -0.0007 Lo cual, al ser un resultado más cercano a 0 que a 1 o -1, indica que no hay ninguna correlación entre estas variables.
 
@@ -213,20 +214,163 @@ Observando gráficamente, a través de un scatter plot:
 
 ![alt text](image-4.png)
 
-Se observa igualmente que los datos están demasiado dispersos como para poder estar relacionados entre si.
+Se observa igualmente que los datos están dispersos y no se puede demostrar que esten relacionados entre si.
+
+Por otro lado, aunque en este mapa de calor, se puede ver de forma gráfica que los que tienen BPM Bajos (por debajo de 130), tienen un conteo mayor de tracks
+
+![alt text](image-5.png)
 
 
+2. Las canciones más populares en el ranking de Spotify también tienen un comportamiento similar en otras plataformas como Deezer.
 
-* Las canciones más populares en el ranking de Spotify también tienen un comportamiento similar en otras plataformas como Deezer.
+Las plataformas que se evaluaron fueron Deezer y Apple. 
+
+Obteniendo los siguientes resultados de la siguiente Query:
+
+```sql
+ SELECT CORR(b.in_deezer_charts,a.in_spotify_charts) as correlacion_spo_deezer,CORR(b.in_apple_charts,a.in_spotify_charts) as correlacion_spo_apple FROM `laboratoria2.datos_hipotesis.track_in_spotify`  a
+
+ JOIN 
+
+ `laboratoria2.datos_hipotesis.track_in_competition` b
+
+ ON 
+
+ a.track_id = b.track_id
+ ```
+ 
+![alt text](image-6.png)
+
+Gráficamente la relación entre las plataformas es la siguiente:
+
+![](image-7.png)
+
+
+Aplicando igualmente otras pruebas y test estadísticos, se obtienen los siguientes resultados:
+
+#### Análisis de Charts (Deezer y Apple vs Spotify Charts):
+Prueba de Shapiro-Wilk para Spotify Charts:
+W-statistic: 0.6869614720344543
+p-value: 1.6415153248964974e-37
+Indica que los datos de Spotify Charts no siguen una distribución normal, ya que el p-value es extremadamente pequeño.
+
+#### Test t de Student para Deezer vs Spotify Charts:
+
+T-statistic: -14.264810631405497
+p-value: 2.486799167406407e-42
+Hay evidencia significativa para rechazar la hipótesis nula de que no hay diferencia entre las medias de Deezer y Spotify Charts. La popularidad en Deezer es significativamente diferente a la de Spotify.
+
+#### Test t de Student para Apple vs Spotify Charts:
+T-statistic: 23.435564295372654
+p-value: 1.1223952978245818e-99
+Hay evidencia significativa para rechazar la hipótesis nula de que no hay diferencia entre las medias de Apple y Spotify Charts. La popularidad en Apple Charts es significativamente diferente a la de Spotify.
+
+#### Test de Wilcoxon-Mann-Whitney para Deezer vs Spotify Charts:
+
+U-statistic: 263284.0
+p-value: 4.150186927427789e-36
+Indica que hay diferencias significativas en cómo se distribuyen las posiciones en los charts entre Deezer y Spotify.
+
+#### Test de Wilcoxon-Mann-Whitney para Apple vs Spotify Charts:
+
+U-statistic: 628814.0
+p-value: 4.662872441105302e-110
+Indica que hay diferencias significativas en cómo se distribuyen las posiciones en los charts entre Apple y Spotify.
+
+
 * La presencia de una canción en un mayor número de playlists se relaciona con un mayor número de streams.
+Para evaluar esta hipótesis, se realizó la consulta:
+```sql
+SELECT
+  CORR(CAST(streams AS int64), participacion_total) AS correlacion
+FROM
+  `laboratoria2.datos_hipotesis.participacion_playlists`
+```
+Donde el resultado fue:
+
+![alt text](image-9.png)
+
+Con las pruebas estadisticas adicionales, se obtiene que:
+#### Prueba de Shapiro-Wilk para participacion_total:
+
+* W-statistic (estadístico W): 0.605
+* p-value: 6.32e-42
+* Interpretación: La prueba de Shapiro-Wilk verifica si los datos siguen una distribución normal. Con un p-value extremadamente bajo, podemos rechazar la hipótesis nula de normalidad. Esto indica que participacion_total no sigue una distribución normal.
+
+#### Test t de Student para participacion_total vs streams:
+
+* T-statistic (estadístico t): -27.88
+* p-value: 2.19e-125
+* Interpretación: Este test compara las medias de participacion_total y streams. Un p-value tan bajo sugiere que hay una diferencia significativa entre estas variables. En términos simples, la cantidad de streams está muy relacionada con la participación total, con una correlación muy fuerte y negativa (es decir, más participación total significa menos streams y viceversa).
+
+#### Test de Wilcoxon-Mann-Whitney para participacion_total vs streams:
+
+* Error: x and y must be of nonzero size.
+* Interpretación: Hubo un error porque los datos no cumplen con los requisitos para este test específico en cuanto a tamaño.
+
+#### Para in_apple_playlists vs streams:
+#### Prueba de Shapiro-Wilk para in_apple_playlists:
+
+* W-statistic: 0.721
+* p-value: 5.06e-37
+* Interpretación: Similar a participacion_total, in_apple_playlists no sigue una distribución normal, debido al p-value muy bajo.
+
+#### Test t de Student para in_apple_playlists vs streams:
+
+* T-statistic: -27.88
+* p-value: 2.19e-125
+* Interpretación: Hay una correlación significativa y negativa entre in_apple_playlists y streams, lo que sugiere que las canciones que están en más playlists de Apple tienden a tener menos streams, y viceversa.
+
+#### Test de Wilcoxon-Mann-Whitney para in_apple_playlists vs streams:
+
+* U-statistic: 145.0
+* p-value: 0.367
+* Interpretación: El p-value relativamente alto indica que no hay una diferencia significativa en los valores de streams entre las canciones que están o no en playlists de Apple. En criollo, estar en playlists de Apple no parece afectar de manera considerable la cantidad de streams.
+
+#### Para in_deezer_playlists vs streams:
+#### Prueba de Shapiro-Wilk para in_deezer_playlists:
+
+* W-statistic: 0.363
+* p-value: 0.0
+* Interpretación: Similar a los anteriores, in_deezer_playlists no sigue una distribución normal debido al p-value cercano a cero.
+
+#### Test t de Student para in_deezer_playlists vs streams:
+
+* T-statistic: -27.88
+* p-value: 2.19e-125
+* Interpretación: Hay una correlación significativa y negativa entre in_deezer_playlists y streams, lo que indica que las canciones en más playlists de Deezer tienden a tener menos streams, y viceversa.
+
+#### Test de Wilcoxon-Mann-Whitney para in_deezer_playlists vs streams:
+
+* U-statistic: 139.0
+* p-value: 0.600
+* Interpretación: Al igual que con Apple Music, el p-value alto sugiere que no hay una diferencia significativa en los valores de streams entre las canciones que están o no en playlists de Deezer.
+
+
 * Los artistas con un mayor número de canciones en Spotify tienen más streams.
+
+
 * Las características de la música influyen en el éxito en términos de cantidad de streams en Spotify.
+
+
 * Las el modo de la canción "Minor" o "Major" influye en la cantidad de reproducciones de la misma.
 
 
 
-## Conclusiones
 
+## Conclusiones
+Según cada hipótesis:
+
+1. Al evaluar los datos a través de la prueba Shapiro-Wilk, se puede asumir que los datos para BPM y Streams en todas las categorías de cuartiles siguen una distribución normal.
+Por lo cual, podemos aplicar Test Mann-Whitney U como segunda comprobación de la influencia de una variable sobre la otra.
+En el cual los resultados sugieren que no hay diferencias significativas en los promedios de BPM entre los cuartiles Alto y Bajo, ni entre Medio-Alto y Medio-Bajo, ya que los p-valores son altos (1.0), lo que indica que no hay suficiente evidencia para rechazar la hipótesis nula de que las distribuciones de BPM en estos grupos son iguales.
+En otras palabras, los datos disponibles no muestran una diferencia significativa en los promedios de BPM entre los grupos.
+
+Corroborandose de igual forma con la regresión lineal simple:
+
+![alt text](image-8.png)
+
+2. Los tests estadísticos muestran que Deezer y Apple tienen diferencias significativas en popularidad comparadas con Spotify Charts. Esto se evidencia en los valores bajos de p-value en los tests t de Student y los tests de Wilcoxon-Mann-Whitney. E igualmente Deezer y Apple tienen patrones de popularidad diferentes a los de Spotify, según los análisis de charts realizados.
 
 ## Limitaciones/Próximos Pasos:
 ### Limitaciones
