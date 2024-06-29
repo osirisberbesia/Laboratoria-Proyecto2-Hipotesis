@@ -199,13 +199,15 @@ La tabla unificada queda así:
 
 
 ## Resultados y Conclusiones
-### Resultados
+---
+Resultados
+---
 
 Después de la limpieza de los datos, de 953 tracks, quedaron 948 tracks.
 
 Con los cuales se puede concluir lo siguiente para cada hipótesis:
 
-1. Las canciones con un mayor BPM (Beats Por Minuto) tienen más éxito en términos de cantidad de streams en Spotify.
+### 1. Las canciones con un mayor BPM (Beats Por Minuto) tienen más éxito en términos de cantidad de streams en Spotify.
 
 Se exploró la relación entre una variable y otra a través de la correlación de Pearson, la cual dió el siguiente resultado:
 -0.0007 Lo cual, al ser un resultado más cercano a 0 que a 1 o -1, indica que no hay ninguna correlación entre estas variables.
@@ -221,7 +223,7 @@ Por otro lado, aunque en este mapa de calor, se puede ver de forma gráfica que 
 ![alt text](image-5.png)
 
 
-2. Las canciones más populares en el ranking de Spotify también tienen un comportamiento similar en otras plataformas como Deezer.
+### 2. Las canciones más populares en el ranking de Spotify también tienen un comportamiento similar en otras plataformas como Deezer.
 
 Las plataformas que se evaluaron fueron Deezer y Apple. 
 
@@ -278,7 +280,8 @@ p-value: 4.662872441105302e-110
 Indica que hay diferencias significativas en cómo se distribuyen las posiciones en los charts entre Apple y Spotify.
 
 
-* La presencia de una canción en un mayor número de playlists se relaciona con un mayor número de streams.
+### 3.La presencia de una canción en un mayor número de playlists se relaciona con un mayor número de streams.
+
 Para evaluar esta hipótesis, se realizó la consulta:
 ```sql
 SELECT
@@ -347,21 +350,24 @@ Con las pruebas estadisticas adicionales, se obtiene que:
 * Interpretación: Al igual que con Apple Music, el p-value alto sugiere que no hay una diferencia significativa en los valores de streams entre las canciones que están o no en playlists de Deezer.
 
 
-* Los artistas con un mayor número de canciones en Spotify tienen más streams.
+### 4. Los artistas con un mayor número de canciones en Spotify tienen más streams.
 
 
-* Las características de la música influyen en el éxito en términos de cantidad de streams en Spotify.
+### 5. Las características de la música influyen en el éxito en términos de cantidad de streams en Spotify.
 
 
-* Las el modo de la canción "Minor" o "Major" influye en la cantidad de reproducciones de la misma.
+### 6. Las el modo de la canción "Minor" o "Major" influye en la cantidad de reproducciones de la misma.
 
 
 
+---
+Conclusiones
+---
 
-## Conclusiones
 Según cada hipótesis:
 
-1. Al evaluar los datos a través de la prueba Shapiro-Wilk, se puede asumir que los datos para BPM y Streams en todas las categorías de cuartiles siguen una distribución normal.
+### 1ra Hipótesis
+Al evaluar los datos a través de la prueba Shapiro-Wilk, se puede asumir que los datos para BPM y Streams en todas las categorías de cuartiles siguen una distribución normal.
 Por lo cual, podemos aplicar Test Mann-Whitney U como segunda comprobación de la influencia de una variable sobre la otra.
 En el cual los resultados sugieren que no hay diferencias significativas en los promedios de BPM entre los cuartiles Alto y Bajo, ni entre Medio-Alto y Medio-Bajo, ya que los p-valores son altos (1.0), lo que indica que no hay suficiente evidencia para rechazar la hipótesis nula de que las distribuciones de BPM en estos grupos son iguales.
 En otras palabras, los datos disponibles no muestran una diferencia significativa en los promedios de BPM entre los grupos.
@@ -370,7 +376,14 @@ Corroborandose de igual forma con la regresión lineal simple:
 
 ![alt text](image-8.png)
 
-2. Los tests estadísticos muestran que Deezer y Apple tienen diferencias significativas en popularidad comparadas con Spotify Charts. Esto se evidencia en los valores bajos de p-value en los tests t de Student y los tests de Wilcoxon-Mann-Whitney. E igualmente Deezer y Apple tienen patrones de popularidad diferentes a los de Spotify, según los análisis de charts realizados.
+### 2da Hipótesis
+ Los tests estadísticos muestran que Deezer y Apple tienen diferencias significativas en popularidad comparadas con Spotify Charts. Esto se evidencia en los valores bajos de p-value en los tests t de Student y los tests de Wilcoxon-Mann-Whitney. E igualmente Deezer y Apple tienen patrones de popularidad diferentes a los de Spotify, según los análisis de charts realizados.
+
+### 3ra Hipótesis 
+
+Para participacion_total: Las canciones con más participación total tienden a tener menos streams, y viceversa. Esto sugiere que la popularidad total de una canción no siempre se traduce en más streams.
+
+Para in_apple_playlists y in_deezer_playlists: Estar en playlists de Apple o Deezer no parece influir significativamente en la cantidad de streams que una canción recibe. Parece que otros factores podrían ser más determinantes en este sentido.
 
 ## Limitaciones/Próximos Pasos:
 ### Limitaciones
@@ -380,9 +393,12 @@ Corroborandose de igual forma con la regresión lineal simple:
 
 ## Enlaces de interés:
 
-[Google Colab Notebook](https://colab.research.google.com/drive/1WFhzvPDD8SYc2n5df5IysLFr5h8cMPmx?usp=sharing)
-[Presentación - Google Slides](https://docs.google.com/presentation/d/1X3Xdv1IGNor8D9KBSDh25LyeDOJMR0BY027JqDykrEs/edit?usp=sharing)
-[Video Loom]
-[Repertorio GitHub]
+* [Google Colab Notebook](https://colab.research.google.com/drive/1WFhzvPDD8SYc2n5df5IysLFr5h8cMPmx?usp=sharing)
+
+* [Presentación - Google Slides](https://docs.google.com/presentation/d/1X3Xdv1IGNor8D9KBSDh25LyeDOJMR0BY027JqDykrEs/edit?usp=sharing)
+
+* [Video Loom]
+
+* [Repertorio GitHub]
 
 
