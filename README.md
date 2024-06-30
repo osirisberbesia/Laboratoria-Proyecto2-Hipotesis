@@ -1,13 +1,11 @@
 
 
 # Proyecto 2 de Análisis de Datos (Hipótesis)
+# Indice
 
-
-  # Índice
-
-  - [Objetivos](#Objetivos)
-  - [Equipo](#equipo)
-  - [Herramientas y Tecnologías](#herramientas-y-tecnologas)
+- [Objetivos](#Objetivos)
+  - [Equipo](#Equipo)
+  - [Herramientas y Tecnologías](#Herramientas-y-Tecnologías)
   - [Procesamiento y análisis](#procesamiento-y-anlisis)
     - [Creación de nuevas variables](#creacin-de-nuevas-variables)
     - [Unificación de tablas](#unificacin-de-tablas)
