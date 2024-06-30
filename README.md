@@ -5,7 +5,7 @@
 
   # Índice
 
-  - [Objetivos](#objetivos)
+  - [Objetivos](#Objetivos)
   - [Equipo](#equipo)
   - [Herramientas y Tecnologías](#herramientas-y-tecnologas)
   - [Procesamiento y análisis](#procesamiento-y-anlisis)
