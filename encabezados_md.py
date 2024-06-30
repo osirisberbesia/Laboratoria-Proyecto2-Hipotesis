@@ -14,7 +14,7 @@ def generate_index(file_path):
         # Mantener los acentos y respetar mayúsculas y minúsculas
         title = header.strip('#').strip()
         level = header.count('#')
-        anchor = re.sub(r'[^a-zA-Z0-9áéíóúÁÉÍÓÚ ]', '', title).replace(' ', '-').lower()
+        anchor = re.sub(r'[^\wáéíóúÁÉÍÓÚ ()\-/:]', '', title).replace(' ', '-').lower()
         index.append(f'{"  " * (level - 1)}- [{title}](#{anchor})')
 
     with open(file_path, 'w', encoding='utf-8') as file:
