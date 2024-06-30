@@ -387,8 +387,11 @@ Los resultados para la correlación de Pearson para cada una de las caracteristi
 ![alt text](image-11.png)
 
 Resultados cercanos a 1 o -1:
+
 * Ninguno
+
 Resultados cercanos a 0:
+
 * `danceability_%`
 * `valence_%`,
 * `energy_%`,
