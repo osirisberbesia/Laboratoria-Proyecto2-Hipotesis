@@ -42,7 +42,7 @@
   - [Limitaciones/Próximos Pasos:](#limitaciones/próximos-pasos:)
     - [Limitaciones](#limitaciones)
     - [Próximos pasos](#próximos-pasos)
-  - [Enlaces de interés:](#enlaces-de-interés:)
+  - [Enlaces de interés:](#enlaces-de-interés)
 
 
 ## Objetivos
