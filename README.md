@@ -403,87 +403,157 @@ Resultados cercanos a 0:
 Los resultados aplicando la pruebas de Shapiro, y el test T y Wilcoxon fueron:
 
 * Característica: danceability_%
+
     Shapiro-Wilk (Alto): 0.0000
+
     Shapiro-Wilk (Bajo): 0.0025
+
     Shapiro-Wilk (Medio-Alto): 0.0008
+
     Shapiro-Wilk (Medio-Bajo): 0.0032
+
     Test T (Alto vs Bajo): 0.3248
+
     Test T (Alto vs Medio-Alto): 0.4413
+
     Test T (Alto vs Medio-Bajo): 0.7481
+
     Test Wilcoxon (Alto vs Bajo): 0.3248
+
     Test Wilcoxon (Alto vs Medio-Alto): 0.4413
+
     Test Wilcoxon (Alto vs Medio-Bajo): 0.7481
 
 * Característica: valence_%
+
     Shapiro-Wilk (Alto): 0.0004
+
     Shapiro-Wilk (Bajo): 0.0001
+
     Shapiro-Wilk (Medio-Alto): 0.0011
+
     Shapiro-Wilk (Medio-Bajo): 0.0004
+
     Test T (Alto vs Bajo): 0.2154
+
     Test T (Alto vs Medio-Alto): 0.4086
+
     Test T (Alto vs Medio-Bajo): 0.2594
+
     Test Wilcoxon (Alto vs Bajo): 0.2154
+
     Test Wilcoxon (Alto vs Medio-Alto): 0.4086
+
     Test Wilcoxon (Alto vs Medio-Bajo): 0.2594
 
 * Característica: energy_%
+
     Shapiro-Wilk (Alto): 0.0008
+
     Shapiro-Wilk (Bajo): 0.0003
+
     Shapiro-Wilk (Medio-Alto): 0.0029
+
     Shapiro-Wilk (Medio-Bajo): 0.0024
+
     Test T (Alto vs Bajo): 0.9597
+
     Test T (Alto vs Medio-Alto): 0.1603
+
     Test T (Alto vs Medio-Bajo): 0.9361
+
     Test Wilcoxon (Alto vs Bajo): 0.9597
+
     Test Wilcoxon (Alto vs Medio-Alto): 0.1603
+
     Test Wilcoxon (Alto vs Medio-Bajo): 0.9361
 
 * Característica: acousticness_%
+
     Shapiro-Wilk (Alto): 0.0000
+
     Shapiro-Wilk (Bajo): 0.0000
+
     Shapiro-Wilk (Medio-Alto): 0.0000
+
     Shapiro-Wilk (Medio-Bajo): 0.0000
+
     Test T (Alto vs Bajo): 0.5453
+
     Test T (Alto vs Medio-Alto): 0.2720
+
     Test T (Alto vs Medio-Bajo): 0.8491
+
     Test Wilcoxon (Alto vs Bajo): 0.5453
+
     Test Wilcoxon (Alto vs Medio-Alto): 0.2720
+
     Test Wilcoxon (Alto vs Medio-Bajo): 0.8491
 
 * Característica: instrumentalness_%
+
     Shapiro-Wilk (Alto): 0.0000
+
     Shapiro-Wilk (Bajo): 0.0000
+
     Shapiro-Wilk (Medio-Alto): 0.0000
+
     Shapiro-Wilk (Medio-Bajo): 0.0000
+
     Test T (Alto vs Bajo): 0.1898
+
     Test T (Alto vs Medio-Alto): 0.5492
+
     Test T (Alto vs Medio-Bajo): 0.2485
+
     Test Wilcoxon (Alto vs Bajo): 0.1898
+
     Test Wilcoxon (Alto vs Medio-Alto): 0.5492
+
     Test Wilcoxon (Alto vs Medio-Bajo): 0.2485
 
 * Característica: liveness_%
+
     Shapiro-Wilk (Alto): 0.0000
+
     Shapiro-Wilk (Bajo): 0.0000
+
     Shapiro-Wilk (Medio-Alto): 0.0000
+
     Shapiro-Wilk (Medio-Bajo): 0.0000
+
     Test T (Alto vs Bajo): 0.7573
+
     Test T (Alto vs Medio-Alto): 0.9912
+
     Test T (Alto vs Medio-Bajo): 0.5676
+
     Test Wilcoxon (Alto vs Bajo): 0.7573
+
     Test Wilcoxon (Alto vs Medio-Alto): 0.9912
+
     Test Wilcoxon (Alto vs Medio-Bajo): 0.5676
 
 * Característica: speechiness_%
+
     Shapiro-Wilk (Alto): 0.0000
+
     Shapiro-Wilk (Bajo): 0.0000
+
     Shapiro-Wilk (Medio-Alto): 0.0000
+
     Shapiro-Wilk (Medio-Bajo): 0.0000
+
     Test T (Alto vs Bajo): 0.9972
+
     Test T (Alto vs Medio-Alto): 0.2983
+
     Test T (Alto vs Medio-Bajo): 0.0985
+
     Test Wilcoxon (Alto vs Bajo): 0.9972
+
     Test Wilcoxon (Alto vs Medio-Alto): 0.2983
+
     Test Wilcoxon (Alto vs Medio-Bajo): 0.0985
 
 ### 6. El modo de la canción, "Minor" o "Major" podría influir en la cantidad de reproducciones.
@@ -547,18 +617,18 @@ Sin embargo, tomando en consideración las pruebas y los test de significancia, 
 
 * Valence (%)
 
-* Shapiro-Wilk: Similar a danceability, todos los grupos muestran valores de p muy pequeños, indicando que la distribución del valence no es normal en ninguno de los grupos.
-* Test T de Welch y Test de Wilcoxon:Los valores de p para todas las comparaciones son mayores que 0.05, lo que sugiere que no hay diferencias significativas en el valence entre los grupos.
+  * Shapiro-Wilk: Similar a danceability, todos los grupos muestran valores de p muy pequeños, indicando que la distribución del valence no es normal en ninguno de los grupos.
+  * Test T de Welch y Test de Wilcoxon:Los valores de p para todas las comparaciones son mayores que 0.05, lo que sugiere que no hay diferencias significativas en el valence entre los grupos.
 
 * Energy (%)
 
-* Shapiro-Wilk:Todos los grupos muestran valores de p muy pequeños, lo que indica que la distribución de la energy no es normal en ninguno de los grupos.
-* Test T de Welch y Test de Wilcoxon:Los valores de p para las comparaciones Alto vs Bajo y Alto vs Medio-Bajo son mayores que 0.05, indicando que no hay diferencias significativas en la energy entre estos grupos. Sin embargo, para Alto vs Medio-Alto, el valor de p es menor que 0.05, sugiriendo que podría haber diferencias significativas en energy entre estos grupos.
+  * Shapiro-Wilk:Todos los grupos muestran valores de p muy pequeños, lo que indica que la distribución de la energy no es normal en ninguno de los grupos.
+  * Test T de Welch y Test de Wilcoxon:Los valores de p para las comparaciones Alto vs Bajo y Alto vs Medio-Bajo son mayores que 0.05, indicando que no hay diferencias significativas en la energy entre estos grupos. Sin embargo, para Alto vs Medio-Alto, el valor de p es menor que 0.05, sugiriendo que podría haber diferencias significativas en energy entre estos grupos.
 
 * Acousticness (%), Instrumentalness (%), Liveness (%), Speechiness (%)
 
-* Shapiro-Wilk:Para todas estas características, todos los grupos muestran valores de p muy pequeños, indicando que ninguna de estas características sigue una distribución normal en ninguno de los grupos.
-* Test T de Welch y Test de Wilcoxon:En general, los valores de p para estas características y las comparaciones realizadas (Alto vs Bajo, Alto vs Medio-Alto, Alto vs Medio-Bajo) son mayores que 0.05, lo que sugiere que no hay diferencias significativas en estas características entre los grupos.
+  * Shapiro-Wilk:Para todas estas características, todos los grupos muestran valores de p muy pequeños, indicando que ninguna de estas características sigue una distribución normal en ninguno de los grupos.
+  * Test T de Welch y Test de Wilcoxon:En general, los valores de p para estas características y las comparaciones realizadas (Alto vs Bajo, Alto vs Medio-Alto, Alto vs Medio-Bajo) son mayores que 0.05, lo que sugiere que no hay diferencias significativas en estas características entre los grupos.
 
 #### Interpretación General:
 
@@ -576,12 +646,54 @@ Podemos concluir observando los siguientes gráficos:
 
 ![alt text](image-16.png)
 
+![alt text](image-17.png)
+
+Que el modo Major combinado con la modalidad Solo tiene una ventaja significativa en comparación a Feat con Minor.
+
+Por todas las conclusiones anteriores, podemos identificar qué lo que hace que una canción sea exitosa es:
+
+* El año de lanzamiento
+* Cantidad de canciones del artista
+* El modo de la canción 
+* Las plataformas donde aparece
+* Modo de canción
+
+Y las recomendaciones para la discográfica son:
+
+* Que el artista sea solista 
+* La canción sea en modo Major
+* Sacar la canción en todas las plataformas
+* Recomendado de canciones promedio a lanzar: 3
+
 
 ## Limitaciones/Próximos Pasos:
+
 ### Limitaciones
+
+* La variable charts en las plataformas, no era clara
+* No se obtuvo de forma precisa el género asignado a cada canción para sacar mejores conclusiones
+* No se tiene el género del artista que se va a lanzar, para hacer una segmentación más adecuada de los datos
+* Hay una cantidad de eventos/situaciones que hace que una canción tenga comportamientos atípicos:
+  * Se hizo viral
+  * Se usó en una película que llegó a ser famosa
+  * Fue un hit sorpresa
+  * Se parecía intencional/no intencionalmente a otra canción existente y se generaron noticias alrededor de esta que la popularizaron
+
+Por todo lo anterior, las recomendaciones son una declaración basada en el estudio de los datos que no pretende preveer comportamientos atípicos a futuro.
 
 
 ### Próximos pasos
+
+* Monitorear tendencias emergentes: Continuar monitoreando nuevas tendencias en la industria musical que puedan impactar el comportamiento de las canciones en las plataformas de streaming.
+
+* Refinar la segmentación por características emergentes: Obtener y utilizar datos actualizados sobre características emergentes de las canciones, como la popularidad en listas de reproducción específicas o tendencias virales recientes.
+
+* Explorar colaboraciones y remixes: Investigar cómo las colaboraciones entre artistas y los remixes afectan el rendimiento de las canciones en diferentes plataformas.
+
+* Mejorar la precisión en la asignación de géneros: Desarrollar métodos más precisos para asignar géneros musicales tanto a canciones como a artistas, utilizando técnicas avanzadas de procesamiento de texto y análisis de contenido.
+
+* Evaluar el impacto de campañas de marketing y promoción: Analizar cómo diferentes estrategias de marketing y promoción influencian la popularidad y el rendimiento de las canciones en las plataformas de streaming.
+
 
 ## Enlaces de interés:
 
@@ -591,6 +703,6 @@ Podemos concluir observando los siguientes gráficos:
 
 * [Video Loom]
 
-* [Repertorio GitHub]
+* [Repertorio GitHub](https://github.com/osirisberbesia/Laboratoria-Proyecto2-Hipotesis)
 
 
