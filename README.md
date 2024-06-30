@@ -280,7 +280,7 @@ p-value: 4.662872441105302e-110
 Indica que hay diferencias significativas en cómo se distribuyen las posiciones en los charts entre Apple y Spotify.
 
 
-### 3.La presencia de una canción en un mayor número de playlists se relaciona con un mayor número de streams.
+### 3. La presencia de una canción en un mayor número de playlists se relaciona con un mayor número de streams.
 
 Para evaluar esta hipótesis, se realizó la consulta:
 ```sql
@@ -352,12 +352,149 @@ Con las pruebas estadisticas adicionales, se obtiene que:
 
 ### 4. Los artistas con un mayor número de canciones en Spotify tienen más streams.
 
+Al analizar la correlación de Pearson con la siguiente query:
+
+```sql
+WITH
+  auxiliar AS (
+  SELECT
+    artist_s_name,
+    COUNT(artist_s_name) AS conteo,
+    SUM(CAST(streams AS int)) AS streamss
+  FROM
+    `laboratoria2.datos_hipotesis.view_unificado`
+  GROUP BY
+    artist_s_name
+  ORDER BY
+    conteo DESC)
+SELECT
+  CORR(a.streamss, a.conteo)
+FROM
+  auxiliar a
+  ```
+
+  Obtenemos como resultado 0.78, que al estar más cercano a 1, indica que hay una correlación lineal positiva.
+
+  Visualmente podemos observar el siguiente comportamiento:
+
+  ![alt text](image-10.png)
+
 
 ### 5. Las características de la música influyen en el éxito en términos de cantidad de streams en Spotify.
 
+Los resultados para la correlación de Pearson para cada una de las caracteristicas de la música, nos dicen que:
 
-### 6. Las el modo de la canción "Minor" o "Major" influye en la cantidad de reproducciones de la misma.
+![alt text](image-11.png)
 
+Resultados cercanos a 1 o -1:
+* Ninguno
+Resultados cercanos a 0:
+* `danceability_%`
+* `valence_%`,
+* `energy_%`,
+* `acousticness_%`,
+* `instrumentalness_%`,
+* `liveness_%`,
+* `speechiness_%`
+
+Los resultados aplicando la pruebas de Shapiro, y el test T y Wilcoxon fueron:
+
+* Característica: danceability_%
+    Shapiro-Wilk (Alto): 0.0000
+    Shapiro-Wilk (Bajo): 0.0025
+    Shapiro-Wilk (Medio-Alto): 0.0008
+    Shapiro-Wilk (Medio-Bajo): 0.0032
+    Test T (Alto vs Bajo): 0.3248
+    Test T (Alto vs Medio-Alto): 0.4413
+    Test T (Alto vs Medio-Bajo): 0.7481
+    Test Wilcoxon (Alto vs Bajo): 0.3248
+    Test Wilcoxon (Alto vs Medio-Alto): 0.4413
+    Test Wilcoxon (Alto vs Medio-Bajo): 0.7481
+
+* Característica: valence_%
+    Shapiro-Wilk (Alto): 0.0004
+    Shapiro-Wilk (Bajo): 0.0001
+    Shapiro-Wilk (Medio-Alto): 0.0011
+    Shapiro-Wilk (Medio-Bajo): 0.0004
+    Test T (Alto vs Bajo): 0.2154
+    Test T (Alto vs Medio-Alto): 0.4086
+    Test T (Alto vs Medio-Bajo): 0.2594
+    Test Wilcoxon (Alto vs Bajo): 0.2154
+    Test Wilcoxon (Alto vs Medio-Alto): 0.4086
+    Test Wilcoxon (Alto vs Medio-Bajo): 0.2594
+
+* Característica: energy_%
+    Shapiro-Wilk (Alto): 0.0008
+    Shapiro-Wilk (Bajo): 0.0003
+    Shapiro-Wilk (Medio-Alto): 0.0029
+    Shapiro-Wilk (Medio-Bajo): 0.0024
+    Test T (Alto vs Bajo): 0.9597
+    Test T (Alto vs Medio-Alto): 0.1603
+    Test T (Alto vs Medio-Bajo): 0.9361
+    Test Wilcoxon (Alto vs Bajo): 0.9597
+    Test Wilcoxon (Alto vs Medio-Alto): 0.1603
+    Test Wilcoxon (Alto vs Medio-Bajo): 0.9361
+
+* Característica: acousticness_%
+    Shapiro-Wilk (Alto): 0.0000
+    Shapiro-Wilk (Bajo): 0.0000
+    Shapiro-Wilk (Medio-Alto): 0.0000
+    Shapiro-Wilk (Medio-Bajo): 0.0000
+    Test T (Alto vs Bajo): 0.5453
+    Test T (Alto vs Medio-Alto): 0.2720
+    Test T (Alto vs Medio-Bajo): 0.8491
+    Test Wilcoxon (Alto vs Bajo): 0.5453
+    Test Wilcoxon (Alto vs Medio-Alto): 0.2720
+    Test Wilcoxon (Alto vs Medio-Bajo): 0.8491
+
+* Característica: instrumentalness_%
+    Shapiro-Wilk (Alto): 0.0000
+    Shapiro-Wilk (Bajo): 0.0000
+    Shapiro-Wilk (Medio-Alto): 0.0000
+    Shapiro-Wilk (Medio-Bajo): 0.0000
+    Test T (Alto vs Bajo): 0.1898
+    Test T (Alto vs Medio-Alto): 0.5492
+    Test T (Alto vs Medio-Bajo): 0.2485
+    Test Wilcoxon (Alto vs Bajo): 0.1898
+    Test Wilcoxon (Alto vs Medio-Alto): 0.5492
+    Test Wilcoxon (Alto vs Medio-Bajo): 0.2485
+
+* Característica: liveness_%
+    Shapiro-Wilk (Alto): 0.0000
+    Shapiro-Wilk (Bajo): 0.0000
+    Shapiro-Wilk (Medio-Alto): 0.0000
+    Shapiro-Wilk (Medio-Bajo): 0.0000
+    Test T (Alto vs Bajo): 0.7573
+    Test T (Alto vs Medio-Alto): 0.9912
+    Test T (Alto vs Medio-Bajo): 0.5676
+    Test Wilcoxon (Alto vs Bajo): 0.7573
+    Test Wilcoxon (Alto vs Medio-Alto): 0.9912
+    Test Wilcoxon (Alto vs Medio-Bajo): 0.5676
+
+* Característica: speechiness_%
+    Shapiro-Wilk (Alto): 0.0000
+    Shapiro-Wilk (Bajo): 0.0000
+    Shapiro-Wilk (Medio-Alto): 0.0000
+    Shapiro-Wilk (Medio-Bajo): 0.0000
+    Test T (Alto vs Bajo): 0.9972
+    Test T (Alto vs Medio-Alto): 0.2983
+    Test T (Alto vs Medio-Bajo): 0.0985
+    Test Wilcoxon (Alto vs Bajo): 0.9972
+    Test Wilcoxon (Alto vs Medio-Alto): 0.2983
+    Test Wilcoxon (Alto vs Medio-Bajo): 0.0985
+
+### 6. El modo de la canción, "Minor" o "Major" podría influir en la cantidad de reproducciones.
+
+Se decidió analizar y explorar adicionalmente lo que sería el mode de la canción, aunque no era una hipótesis solicitada/planteada por la discográfica, se consideró pertinente hacer estudio de la misma, los estudios en cuanto a la correlación de Pearson para esta variable arrojaron los siguientes resultados gráficos
+
+![alt text](image-15.png)
+
+
+### 7. La cantidad de artista en la canción, "Solo" o "Feat" podría influir en la cantidad de reproducciones.
+
+Se decidió analizar y explorar adicionalmente cuanto podría influir si un artista solista o un grupo podría ser positivo para la cantidad de streams, aunque no era una hipótesis solicitada/planteada por la discográfica, se consideró pertinente hacer estudio de la misma, los estudios en cuanto a la correlación de Pearson para esta variable arrojaron los siguientes resultados gráficos: 
+
+![alt text](image-14.png)
 
 
 ---
@@ -367,6 +504,9 @@ Conclusiones
 Según cada hipótesis:
 
 ### 1ra Hipótesis
+
+No se observa que los BPM tengan una relación lineal con la cantidad de streams, ya que no existe correlación lineal para afirmar que las canciones tengan más o menos éxito en streams de Spotify.
+
 Al evaluar los datos a través de la prueba Shapiro-Wilk, se puede asumir que los datos para BPM y Streams en todas las categorías de cuartiles siguen una distribución normal.
 Por lo cual, podemos aplicar Test Mann-Whitney U como segunda comprobación de la influencia de una variable sobre la otra.
 En el cual los resultados sugieren que no hay diferencias significativas en los promedios de BPM entre los cuartiles Alto y Bajo, ni entre Medio-Alto y Medio-Bajo, ya que los p-valores son altos (1.0), lo que indica que no hay suficiente evidencia para rechazar la hipótesis nula de que las distribuciones de BPM en estos grupos son iguales.
@@ -377,13 +517,62 @@ Corroborandose de igual forma con la regresión lineal simple:
 ![alt text](image-8.png)
 
 ### 2da Hipótesis
- Los tests estadísticos muestran que Deezer y Apple tienen diferencias significativas en popularidad comparadas con Spotify Charts. Esto se evidencia en los valores bajos de p-value en los tests t de Student y los tests de Wilcoxon-Mann-Whitney. E igualmente Deezer y Apple tienen patrones de popularidad diferentes a los de Spotify, según los análisis de charts realizados.
+
+A pesar de que se encontró una relación lineal positiva, lo que sugiere que si es popular en Spotify a su vez será popular en las otras plataformas (Deezer, Apple), los tests estadísticos muestran que Deezer y Apple tienen diferencias significativas en popularidad comparadas con Spotify Charts. Esto se evidencia en los valores bajos de p-value en los tests t de Student y los tests de Wilcoxon-Mann-Whitney. E igualmente Deezer y Apple tienen patrones de popularidad diferentes a los de Spotify, según los análisis de charts realizados.
 
 ### 3ra Hipótesis 
+Tomando en cuenta el resultado de la correlaciónde Pearson en las variables estudiadas, luego de aplicar las pruebas estadíticas adicionales tenemos que:
 
 Para participacion_total: Las canciones con más participación total tienden a tener menos streams, y viceversa. Esto sugiere que la popularidad total de una canción no siempre se traduce en más streams.
 
 Para in_apple_playlists y in_deezer_playlists: Estar en playlists de Apple o Deezer no parece influir significativamente en la cantidad de streams que una canción recibe. Parece que otros factores podrían ser más determinantes en este sentido.
+
+### 4ta Hipótesis
+
+Se encontró una relación lineal positiva, que sugiere que mientras más canciones tenga un artista o grupo, mayor será la sumatoria de sus streams, sin embargo, los artistas más populares a nivel mundial tienen mayor cantidad de streams sin un gran número de canciones
+
+### 5ta Hipótesis
+
+En cuanto al análisis relacionado con la correlación de Pearson, nos muestra que en cada caracteristica se encontró que: mientras más bailable y más palabras haya en la canción tienen una relación lineal negativa en cuanto al éxito en términos de streams, mientras que a diferencia de las caracteristicas valence, energy, acusticness, instrumentality y liveness, estás no tienen correlación lineal ni positiva ni negativa.
+
+Sin embargo, tomando en consideración las pruebas y los test de significancia, se obtiene que:
+
+* Danceability (%)
+
+  * Shapiro-Wilk: Todos los grupos (Alto, Bajo, Medio-Alto, Medio-Bajo) muestran valores de p muy pequeños (todos < 0.01), lo que indica que la distribución de la danceability no sigue una distribución normal en ninguno de los grupos.
+  * Test T de Welch y Test de Wilcoxon: Para todas las comparaciones (Alto vs Bajo, Alto vs Medio-Alto, Alto vs Medio-Bajo), los valores de p son mayores que 0.05, lo cual sugiere que no hay diferencias significativas en la danceability entre estos grupos.
+
+* Valence (%)
+
+* Shapiro-Wilk: Similar a danceability, todos los grupos muestran valores de p muy pequeños, indicando que la distribución del valence no es normal en ninguno de los grupos.
+* Test T de Welch y Test de Wilcoxon:Los valores de p para todas las comparaciones son mayores que 0.05, lo que sugiere que no hay diferencias significativas en el valence entre los grupos.
+
+* Energy (%)
+
+* Shapiro-Wilk:Todos los grupos muestran valores de p muy pequeños, lo que indica que la distribución de la energy no es normal en ninguno de los grupos.
+* Test T de Welch y Test de Wilcoxon:Los valores de p para las comparaciones Alto vs Bajo y Alto vs Medio-Bajo son mayores que 0.05, indicando que no hay diferencias significativas en la energy entre estos grupos. Sin embargo, para Alto vs Medio-Alto, el valor de p es menor que 0.05, sugiriendo que podría haber diferencias significativas en energy entre estos grupos.
+
+* Acousticness (%), Instrumentalness (%), Liveness (%), Speechiness (%)
+
+* Shapiro-Wilk:Para todas estas características, todos los grupos muestran valores de p muy pequeños, indicando que ninguna de estas características sigue una distribución normal en ninguno de los grupos.
+* Test T de Welch y Test de Wilcoxon:En general, los valores de p para estas características y las comparaciones realizadas (Alto vs Bajo, Alto vs Medio-Alto, Alto vs Medio-Bajo) son mayores que 0.05, lo que sugiere que no hay diferencias significativas en estas características entre los grupos.
+
+#### Interpretación General:
+
+En la mayoría de las características analizadas (danceability, valence, acousticness, instrumentalness, liveness, speechiness), no se encontraron diferencias significativas entre los grupos de cuartiles (Alto, Bajo, Medio-Alto, Medio-Bajo) según los tests estadísticos realizados.
+
+En energy, se observó una diferencia significativa entre el grupo Alto y Medio-Alto, lo que podría indicar una diferencia en los niveles de energy entre estos grupos.
+
+Estos resultados refuerzan la conclusión de que las características musicales analizadas no muestran variaciones significativas entre los diferentes niveles de streams representados por los cuartiles de categoría.
+
+### Otras Hipótesis
+
+Podemos concluir observando los siguientes gráficos:
+
+![](image-12.png)
+
+![alt text](image-16.png)
+
 
 ## Limitaciones/Próximos Pasos:
 ### Limitaciones
