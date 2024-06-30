@@ -1,6 +1,7 @@
 # Índice
 
-- [Proyecto 2 de Análisis de Datos (Hipótesis)](#proyecto-2-de-análisis-de-datos-hipótesis)
+Proyecto 2 de Análisis de Datos (Hipótesis)
+
   - [Objetivos](#objetivos)
   - [Equipo](#equipo)
   - [Herramientas y Tecnologías](#herramientas-y-tecnologías)
@@ -16,9 +17,9 @@
       - [Test de Wilcoxon-Mann-Whitney para Deezer vs Spotify Charts:](#test-de-wilcoxonmannwhitney-para-deezer-vs-spotify-charts)
       - [Test de Wilcoxon-Mann-Whitney para Apple vs Spotify Charts:](#test-de-wilcoxonmannwhitney-para-apple-vs-spotify-charts)
     - [3. La presencia de una canción en un mayor número de playlists se relaciona con un mayor número de streams.](#3-la-presencia-de-una-canción-en-un-mayor-número-de-playlists-se-relaciona-con-un-mayor-número-de-streams)
-      - [Prueba de Shapiro-Wilk para participacion_total:](#prueba-de-shapirowilk-para-participaciontotal)
+      - [Prueba de Shapiro-Wilk para participacion_total:](#prueba-de-shapirowilk-para-participacion_total)
       - [Test t de Student para participacion_total vs streams:](#test-t-de-student-para-participaciontotal-vs-streams)
-      - [Test de Wilcoxon-Mann-Whitney para participacion_total vs streams:](#test-de-wilcoxonmannwhitney-para-participaciontotal-vs-streams)
+      - [Test de Wilcoxon-Mann-Whitney para participacion_total vs streams:](#test-de-wilcoxonmannwhitney-para-participacion_total-vs-streams)
       - [Para in_apple_playlists vs streams:](#para-inappleplaylists-vs-streams)
       - [Prueba de Shapiro-Wilk para in_apple_playlists:](#prueba-de-shapirowilk-para-inappleplaylists)
       - [Test t de Student para in_apple_playlists vs streams:](#test-t-de-student-para-inappleplaylists-vs-streams)
@@ -42,55 +43,6 @@
     - [Limitaciones](#limitaciones)
     - [Próximos pasos](#próximos-pasos)
   - [Enlaces de interés:](#enlaces-de-interés)
-
-
-
-# Proyecto 2 de Análisis de Datos (Hipótesis)
-
-
-  # Índice
-
-  - [Objetivos](#objetivos)
-  - [Equipo](#Equipo)
-  - [Herramientas y Tecnologías](#Herramientas-y-Tecnologías)
-  - [Procesamiento y análisis](#procesamiento-y-anlisis)
-    - [Creación de nuevas variables](#creacin-de-nuevas-variables)
-    - [Unificación de tablas](#unificacin-de-tablas)
-  - [Resultados y Conclusiones](#resultados-y-conclusiones)
-    - [1. Las canciones con un mayor BPM (Beats Por Minuto) tienen más éxito en términos de cantidad de streams en Spotify.](#1-las-canciones-con-un-mayor-bpm-beats-por-minuto-tienen-ms-xito-en-trminos-de-cantidad-de-streams-en-spotify)
-    - [2. Las canciones más populares en el ranking de Spotify también tienen un comportamiento similar en otras plataformas como Deezer.](#2-las-canciones-ms-populares-en-el-ranking-de-spotify-tambin-tienen-un-comportamiento-similar-en-otras-plataformas-como-deezer)
-      - [Análisis de Charts (Deezer y Apple vs Spotify Charts):](#anlisis-de-charts-deezer-y-apple-vs-spotify-charts)
-      - [Test t de Student para Deezer vs Spotify Charts:](#test-t-de-student-para-deezer-vs-spotify-charts)
-      - [Test t de Student para Apple vs Spotify Charts:](#test-t-de-student-para-apple-vs-spotify-charts)
-      - [Test de Wilcoxon-Mann-Whitney para Deezer vs Spotify Charts:](#test-de-wilcoxonmannwhitney-para-deezer-vs-spotify-charts)
-      - [Test de Wilcoxon-Mann-Whitney para Apple vs Spotify Charts:](#test-de-wilcoxonmannwhitney-para-apple-vs-spotify-charts)
-    - [3. La presencia de una canción en un mayor número de playlists se relaciona con un mayor número de streams.](#3-la-presencia-de-una-cancin-en-un-mayor-nmero-de-playlists-se-relaciona-con-un-mayor-nmero-de-streams)
-      - [Prueba de Shapiro-Wilk para participacion_total:](#prueba-de-shapirowilk-para-participaciontotal)
-      - [Test t de Student para participacion_total vs streams:](#test-t-de-student-para-participaciontotal-vs-streams)
-      - [Test de Wilcoxon-Mann-Whitney para participacion_total vs streams:](#test-de-wilcoxonmannwhitney-para-participaciontotal-vs-streams)
-      - [Para in_apple_playlists vs streams:](#para-inappleplaylists-vs-streams)
-      - [Prueba de Shapiro-Wilk para in_apple_playlists:](#prueba-de-shapirowilk-para-inappleplaylists)
-      - [Test t de Student para in_apple_playlists vs streams:](#test-t-de-student-para-inappleplaylists-vs-streams)
-      - [Test de Wilcoxon-Mann-Whitney para in_apple_playlists vs streams:](#test-de-wilcoxonmannwhitney-para-inappleplaylists-vs-streams)
-      - [Para in_deezer_playlists vs streams:](#para-indeezerplaylists-vs-streams)
-      - [Prueba de Shapiro-Wilk para in_deezer_playlists:](#prueba-de-shapirowilk-para-indeezerplaylists)
-      - [Test t de Student para in_deezer_playlists vs streams:](#test-t-de-student-para-indeezerplaylists-vs-streams)
-      - [Test de Wilcoxon-Mann-Whitney para in_deezer_playlists vs streams:](#test-de-wilcoxonmannwhitney-para-indeezerplaylists-vs-streams)
-    - [4. Los artistas con un mayor número de canciones en Spotify tienen más streams.](#4-los-artistas-con-un-mayor-nmero-de-canciones-en-spotify-tienen-ms-streams)
-    - [5. Las características de la música influyen en el éxito en términos de cantidad de streams en Spotify.](#5-las-caractersticas-de-la-msica-influyen-en-el-xito-en-trminos-de-cantidad-de-streams-en-spotify)
-    - [6. El modo de la canción, "Minor" o "Major" podría influir en la cantidad de reproducciones.](#6-el-modo-de-la-cancin-minor-o-major-podra-influir-en-la-cantidad-de-reproducciones)
-    - [7. La cantidad de artista en la canción, "Solo" o "Feat" podría influir en la cantidad de reproducciones.](#7-la-cantidad-de-artista-en-la-cancin-solo-o-feat-podra-influir-en-la-cantidad-de-reproducciones)
-    - [1ra Hipótesis](#1ra-hiptesis)
-    - [2da Hipótesis](#2da-hiptesis)
-    - [3ra Hipótesis](#3ra-hiptesis)
-    - [4ta Hipótesis](#4ta-hiptesis)
-    - [5ta Hipótesis](#5ta-hiptesis)
-      - [Interpretación General:](#interpretacin-general)
-    - [Otras Hipótesis](#otras-hiptesis)
-  - [Limitaciones/Próximos Pasos:](#limitacionesprximos-pasos)
-    - [Limitaciones](#limitaciones)
-    - [Próximos pasos](#prximos-pasos)
-  - [Enlaces de interés:](#enlaces-de-inters)
 
 
 ## Objetivos
