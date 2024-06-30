@@ -6,8 +6,8 @@
   # Índice
 
   - [Objetivos](#objetivos)
-  - [Equipo](#equipo)
-  - [Herramientas y Tecnologías](#herramientas-y-tecnologas)
+  - [Equipo](#Equipo)
+  - [Herramientas y Tecnologías](#Herramientas-y-Tecnologías)
   - [Procesamiento y análisis](#procesamiento-y-anlisis)
     - [Creación de nuevas variables](#creacin-de-nuevas-variables)
     - [Unificación de tablas](#unificacin-de-tablas)
