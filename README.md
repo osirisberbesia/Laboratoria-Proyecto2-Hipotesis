@@ -21,9 +21,9 @@
     - [3ra Hipótesis](#3ra-hipótesis)
     - [4ta Hipótesis](#4ta-hipótesis)
     - [5ta Hipótesis](#5ta-hipótesis)
-      - [Interpretación General:](#interpretación-general)
+      - [Interpretación General](#interpretación-general)
     - [Otras Hipótesis](#otras-hipótesis)
-  - [Limitaciones/Próximos Pasos:](#limitaciones/próximos-pasos)
+  - [Limitaciones-Próximos Pasos](#limitaciones-próximos-pasos)
     - [Limitaciones](#limitaciones)
     - [Próximos pasos](#próximos-pasos)
   - [Enlaces de interés:](#enlaces-de-interés)
@@ -643,7 +643,7 @@ Sin embargo, tomando en consideración las pruebas y los test de significancia, 
   * Shapiro-Wilk:Para todas estas características, todos los grupos muestran valores de p muy pequeños, indicando que ninguna de estas características sigue una distribución normal en ninguno de los grupos.
   * Test T de Welch y Test de Wilcoxon:En general, los valores de p para estas características y las comparaciones realizadas (Alto vs Bajo, Alto vs Medio-Alto, Alto vs Medio-Bajo) son mayores que 0.05, lo que sugiere que no hay diferencias significativas en estas características entre los grupos.
 
-#### Interpretación General:
+#### Interpretación General
 
 En la mayoría de las características analizadas (danceability, valence, acousticness, instrumentalness, liveness, speechiness), no se encontraron diferencias significativas entre los grupos de cuartiles (Alto, Bajo, Medio-Alto, Medio-Bajo) según los tests estadísticos realizados.
 
@@ -679,7 +679,7 @@ Y las recomendaciones para la discográfica son:
 * Recomendado de canciones promedio a lanzar: 3
 
 
-## Limitaciones/Próximos Pasos:
+## Limitaciones-Próximos Pasos
 
 ### Limitaciones
 
