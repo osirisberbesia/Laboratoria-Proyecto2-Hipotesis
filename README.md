@@ -31,7 +31,7 @@
 
 ## Objetivos
 
-Preparar la información de la base de datos que corresponde a los datos de las reproducciones de canciones más escuchadas en el año 2023 en la plataforma Spotify, Deezer y Apple, para comprender, respaldar y conocer el comportamiento que hace que una canción sea mayor o menormente escuchada en una plataforma. 
+Preparar la información de la base de datos que corresponde a los datos de las reproducciones de canciones más escuchadas en el año 2023 en la plataforma Spotify, Deezer y Apple, para comprender, respaldar y conocer el comportamiento que hace que una canción sea más o menos escuchada en una plataforma. 
 Analizar los datos, para convertirlos en información respaldada por cálculos estadísticos.
 
 Se pretende obtener las respuestas para validar o refutar las siguientes hipótesis:
@@ -178,7 +178,7 @@ s.track_id != "5080031" and s.streams NOT LIKE "%B%" and s.track_id !="7173596";
 
 * cuartiles:
 
-  Los siguientes cuartiles categorizan entre alto y bajo segun el valor de la caracteristica de la música:
+  Los siguientes cuartiles categorizan entre alto y bajo según el valor de la característica de la música:
 
   * cuartiles_dance
   * cuartiles_valence
@@ -607,7 +607,7 @@ Corroborandose de igual forma con la regresión lineal simple:
 A pesar de que se encontró una relación lineal positiva, lo que sugiere que si es popular en Spotify a su vez será popular en las otras plataformas (Deezer, Apple), los tests estadísticos muestran que Deezer y Apple tienen diferencias significativas en popularidad comparadas con Spotify Charts. Esto se evidencia en los valores bajos de p-value en los tests t de Student y los tests de Wilcoxon-Mann-Whitney. E igualmente Deezer y Apple tienen patrones de popularidad diferentes a los de Spotify, según los análisis de charts realizados.
 
 ### 3ra Hipótesis 
-Tomando en cuenta el resultado de la correlaciónde Pearson en las variables estudiadas, luego de aplicar las pruebas estadísticas adicionales tenemos que:
+Tomando en cuenta el resultado de la correlación de Pearson en las variables estudiadas, luego de aplicar las pruebas estadísticas adicionales tenemos que:
 
 Para participacion_total: Las canciones con más participación total tienden a tener menos streams, y viceversa. Esto sugiere que la popularidad total de una canción no siempre se traduce en más streams.
 
@@ -619,14 +619,14 @@ Se encontró una relación lineal positiva, que sugiere que mientras más cancio
 
 ### 5ta Hipótesis
 
-En cuanto al análisis relacionado con la correlación de Pearson, nos muestra que en cada caracteristica se encontró que: mientras más bailable y más palabras haya en la canción tienen una relación lineal negativa en cuanto al éxito en términos de streams, mientras que a diferencia de las caracteristicas valence, energy, acusticness, instrumentality y liveness, estás no tienen correlación lineal ni positiva ni negativa./
+En cuanto al análisis relacionado con la correlación de Pearson, nos muestra que en cada característica se encontró que: mientras más bailable y más palabras haya en la canción tienen una relación lineal negativa en cuanto al éxito en términos de streams, mientras que a diferencia de las características valence, energy, acousticness, instrumentality y liveness, estás no tienen correlación lineal ni positiva ni negativa./
 
 Sin embargo, tomando en consideración las pruebas y los test de significancia, se obtiene que:
 
 * Danceability (%)
 
   * Shapiro-Wilk: Todos los grupos (Alto, Bajo, Medio-Alto, Medio-Bajo) muestran valores de p muy pequeños (todos < 0.01), lo que indica que la distribución de la danceability no sigue una distribución normal en ninguno de los grupos.
-  * Test T de Welch y Test de Wilcoxon: Para todas las comparaciones (Alto vs Bajo, Alto vs Medio-Alto, Alto vs Medio-Bajo), los valores de p son mayores que 0.05, lo cual sugiere que no hay diferencias significativas en la danceability entre estos grupos.
+  * Test T de Welch y Test de Wilcoxon: Para todas las comparaciones (Alto vs Bajo, Alto vs Medio-Alto, Alto vs Medio-Bajo), los valores de p son mayores que 0.05, lo cual sugiere que no hay diferencias significativas en la danceability entre estos grupos. 
 
 * Valence (%)
 
@@ -668,7 +668,7 @@ Por todas las conclusiones anteriores, podemos identificar qué lo que hace que 
 * El año de lanzamiento
 * Cantidad de canciones del artista
 * El modo de la canción 
-* Las plataformas donde aparece
+* Las plataformas donde aparece 
 * Modo de canción
 
 Y las recomendaciones para la discográfica son:
@@ -692,12 +692,12 @@ Y las recomendaciones para la discográfica son:
   * Fue un hit sorpresa
   * Se parecía intencional/no intencionalmente a otra canción existente y se generaron noticias alrededor de esta que la popularizaron
 
-Por todo lo anterior, las recomendaciones son una declaración basada en el estudio de los datos que no pretende preveer comportamientos atípicos a futuro.
+Por todo lo anterior, las recomendaciones son una declaración basada en el estudio de los datos que no pretende prever comportamientos atípicos a futuro.
 
 
 ### Próximos pasos
 
-* Monitorear tendencias emergentes: Continuar monitoreando nuevas tendencias en la industria musical que puedan impactar el comportamiento de las canciones en las plataformas de streaming.
+* Monitorear tendencias emergentes: Continuar monitorizando nuevas tendencias en la industria musical que puedan impactar el comportamiento de las canciones en las plataformas de streaming.
 
 * Refinar la segmentación por características emergentes: Obtener y utilizar datos actualizados sobre características emergentes de las canciones, como la popularidad en listas de reproducción específicas o tendencias virales recientes.
 
@@ -714,7 +714,7 @@ Por todo lo anterior, las recomendaciones son una declaración basada en el estu
 
 * [Presentación - Google Slides](https://docs.google.com/presentation/d/1X3Xdv1IGNor8D9KBSDh25LyeDOJMR0BY027JqDykrEs/edit?usp=sharing)
 
-* [Video Loom]
+* [Video Loom](https://www.loom.com/share/8ebd84ced2014a9f8e3e4be013ff6d8a)
 
 * [Repertorio GitHub](https://github.com/osirisberbesia/Laboratoria-Proyecto2-Hipotesis)
 
