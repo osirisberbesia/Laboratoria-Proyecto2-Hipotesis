@@ -15,7 +15,7 @@
     - [4. Los artistas con un mayor número de canciones en Spotify tienen más streams.](#4-los-artistas-con-un-mayor-número-de-canciones-en-spotify-tienen-más-streams)
     - [5. Las características de la música influyen en el éxito en términos de cantidad de streams en Spotify.](#5-las-características-de-la-música-influyen-en-el-éxito-en-términos-de-cantidad-de-streams-en-spotify)
     - [6. El modo de la canción, "Minor" o "Major" podría influir en la cantidad de reproducciones.](#6-el-modo-de-la-canción-minor-o-major-podría-influir-en-la-cantidad-de-reproducciones)
-    - [7. La cantidad de artista en la canción, "Solo" o "Feat" podría influir en la cantidad de reproducciones.](#7-la-cantidad-de-artista-en-la-canción-solo-o-feat-podría-influir-en-la-cantidad-de-reproducciones)
+    - [7. La cantidad de artistas en la canción, "Solo" o "Feat" podría influir en la cantidad de reproducciones.](#7-la-cantidad-de-artistas-en-la-canción-solo-o-feat-podría-influir-en-la-cantidad-de-reproducciones)
     - [1ra Hipótesis](#1ra-hipótesis)
     - [2da Hipótesis](#2da-hipótesis)
     - [3ra Hipótesis](#3ra-hipótesis)
@@ -576,7 +576,7 @@ Se decidió analizar y explorar adicionalmente lo que sería el mode de la canci
 ![alt text](image-15.png)
 
 
-### 7. La cantidad de artista en la canción, "Solo" o "Feat" podría influir en la cantidad de reproducciones.
+### 7. La cantidad de artistas en la canción, "Solo" o "Feat" podría influir en la cantidad de reproducciones.
 
 Se decidió analizar y explorar adicionalmente cuanto podría influir si un artista solista o un grupo podría ser positivo para la cantidad de streams, aunque no era una hipótesis solicitada/planteada por la discográfica, se consideró pertinente hacer estudio de la misma, los estudios en cuanto a la correlación de Pearson para esta variable arrojaron los siguientes resultados gráficos: 
 
@@ -607,7 +607,7 @@ Corroborandose de igual forma con la regresión lineal simple:
 A pesar de que se encontró una relación lineal positiva, lo que sugiere que si es popular en Spotify a su vez será popular en las otras plataformas (Deezer, Apple), los tests estadísticos muestran que Deezer y Apple tienen diferencias significativas en popularidad comparadas con Spotify Charts. Esto se evidencia en los valores bajos de p-value en los tests t de Student y los tests de Wilcoxon-Mann-Whitney. E igualmente Deezer y Apple tienen patrones de popularidad diferentes a los de Spotify, según los análisis de charts realizados.
 
 ### 3ra Hipótesis 
-Tomando en cuenta el resultado de la correlaciónde Pearson en las variables estudiadas, luego de aplicar las pruebas estadíticas adicionales tenemos que:
+Tomando en cuenta el resultado de la correlaciónde Pearson en las variables estudiadas, luego de aplicar las pruebas estadísticas adicionales tenemos que:
 
 Para participacion_total: Las canciones con más participación total tienden a tener menos streams, y viceversa. Esto sugiere que la popularidad total de una canción no siempre se traduce en más streams.
 
@@ -619,7 +619,7 @@ Se encontró una relación lineal positiva, que sugiere que mientras más cancio
 
 ### 5ta Hipótesis
 
-En cuanto al análisis relacionado con la correlación de Pearson, nos muestra que en cada caracteristica se encontró que: mientras más bailable y más palabras haya en la canción tienen una relación lineal negativa en cuanto al éxito en términos de streams, mientras que a diferencia de las caracteristicas valence, energy, acusticness, instrumentality y liveness, estás no tienen correlación lineal ni positiva ni negativa.
+En cuanto al análisis relacionado con la correlación de Pearson, nos muestra que en cada caracteristica se encontró que: mientras más bailable y más palabras haya en la canción tienen una relación lineal negativa en cuanto al éxito en términos de streams, mientras que a diferencia de las caracteristicas valence, energy, acusticness, instrumentality y liveness, estás no tienen correlación lineal ni positiva ni negativa./
 
 Sin embargo, tomando en consideración las pruebas y los test de significancia, se obtiene que:
 
