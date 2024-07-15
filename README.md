@@ -719,3 +719,5 @@ Por todo lo anterior, las recomendaciones son una declaración basada en el estu
 * [Repertorio GitHub](https://github.com/osirisberbesia/Laboratoria-Proyecto2-Hipotesis)
 
 
+# gcloud auth application-default login
+# gcloud auth application-default print-access-token
